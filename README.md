@@ -37,7 +37,3 @@ A simple web application for managing and displaying a personal book library. Us
 ├── script.js          # JavaScript for app logic
 └── README.md          # Project documentation
 ```
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
