@@ -1,4 +1,4 @@
-# Book Library Project
+# My Library Project
 
 This project is a simple book library web application where users can add, display, remove, and update the read status of books. It is designed with a user-friendly interface, utilizing a dialog form to input book information.
 
