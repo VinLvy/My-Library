@@ -4,12 +4,25 @@ const openDialogButton = document.querySelector('.open-dialog');
 const closeDialogButton = document.querySelector('.close-dialog');
 const booksTableBody = document.querySelector('.books-table tbody');
 
-// Book constructor
-function Book(title, author, pages, status) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
+// Book class
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+  }
+
+  // Toggle the read status of the book
+  toggleStatus() {
+    if (this.status === 'Read') {
+      this.status = 'Unread';
+    } else if (this.status === 'Unread') {
+      this.status = 'Reading';
+    } else {
+      this.status = 'Read';
+    }
+  }
 }
 
 // Function to add a book to the library
@@ -49,13 +62,7 @@ function removeBook(index) {
 // Function to toggle the read status of a book
 function toggleReadStatus(index) {
   const book = myLibrary[index];
-  if (book.status === 'Read') {
-    book.status = 'Unread';
-  } else if (book.status === 'Unread') {
-    book.status = 'Reading';
-  } else {
-    book.status = 'Read';
-  }
+  book.toggleStatus();
   displayBooks(); // Update the display
 }
 
