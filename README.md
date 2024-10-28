@@ -1,39 +1,61 @@
-# My Library App
+# My Library Project
 
-A simple web application for managing and displaying a personal book library. Users can add new books, toggle their read status, and remove them from the list. This project showcases HTML, CSS, and JavaScript features, including DOM manipulation and event handling.
+This project is a simple book library web application where users can add, display, remove, and update the read status of books. It is designed with a user-friendly interface, utilizing a dialog form to input book information.
 
 ## Features
+- Add new books with title, author, pages, and reading status.
+- Display books in a table format.
+- Remove books from the library.
+- Toggle the reading status between **Read**, **Unread**, and **Reading**.
 
-- **Add New Book**: Users can add new books to the library by filling out a form with the book's title, author, number of pages, and reading status.
-- **Display Books**: Books are displayed in a clean table format, where each book has its title, author, pages, and current reading status visible.
-- **Remove Books**: Each book entry includes a button to remove the book from the library.
-- **Update Read Status**: Users can toggle the reading status of each book between "Read", "Unread", and "Currently Reading".
-- **Responsive Design**: The app is designed to be mobile-friendly with responsive layout and scalable styling.
+## Code Structure
 
-## Tech Stack
+The project uses JavaScript ES6 classes and DOM manipulation to manage books in a library array and display them dynamically on the page. Each book is an instance of the `Book` class, which simplifies the code by encapsulating book-related properties and methods.
 
-- **HTML**: Used to structure the layout of the page.
-- **CSS**: Styled using modern CSS features for a clean, responsive design.
-- **JavaScript**: The core logic is written in vanilla JavaScript, enabling dynamic updates, form handling, and event-driven interactions.
+## Refactoring Explanation
+
+### Original Code
+
+The original version used a plain constructor function to define the `Book` objects and separate functions to handle book operations (e.g., `toggleReadStatus`). However, using ES6 classes provides better structure, readability, and encapsulation.
+
+### Refactored Code
+
+The refactored version introduces an ES6 `Book` class with a `toggleStatus` method to change the read status of each book. This class-based approach improves the modularity of the code by combining properties and methods directly within the `Book` class. Here’s an overview of the main changes:
+
+1. **Class Definition**: The `Book` class replaces the constructor function, defining `title`, `author`, `pages`, and `status` as properties in its constructor.
+2. **Method Encapsulation**: The `toggleStatus` method is added to the `Book` class to manage the status change directly, reducing the need for a standalone `toggleReadStatus` function.
+3. **Code Organization**: The `Book` class makes the code more organized, allowing each instance to handle its own data and behavior, which is particularly useful for handling dynamic content.
 
 ## Usage
 
-### Adding a Book
-1. Click on the **Add book** button at the top of the page.
-2. A form will appear, asking for the book's details (title, author, pages, and status).
-3. Fill in the form and click **Save** to add the book to the library.
+To use this application:
+1. Clone this repository.
+2. Open `index.html` in a web browser.
+3. Click "Add Book" to open the dialog, enter book information, and submit.
+4. View, remove, or toggle the reading status of any book in the list.
 
-### Removing a Book
-- Each book listed in the table has a red **Remove** button. Click the button to remove the book from the library.
+## Example Code
 
-### Toggling Book Read Status
-- The reading status of a book can be changed by clicking the toggle button next to the status column. This updates the current reading status.
+```javascript
+// Define a new Book class
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+  }
 
-## Project Structure
+  // Method to toggle reading status
+  toggleStatus() {
+    if (this.status === 'Read') {
+      this.status = 'Unread';
+    } else if (this.status === 'Unread') {
+      this.status = 'Reading';
+    } else {
+      this.status = 'Read';
+    }
+  }
+}
 
-```bash
-├── index.html         # The main HTML file
-├── style.css          # CSS for styling the app
-├── script.js          # JavaScript for app logic
-└── README.md          # Project documentation
-```
+This `README.md` provides a project overview, feature list, code explanation, usage instructions, and an example code snippet.
