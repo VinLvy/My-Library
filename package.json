@@ -1,0 +1,15 @@
+{
+  "name": "my-library",
+  "version": "1.0.0",
+  "description": "A simple web application for managing and displaying a personal book library. Users can add new books, toggle their read status, and remove them from the list. This project showcases HTML, CSS, and JavaScript features, including DOM manipulation and event handling.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
